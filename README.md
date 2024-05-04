@@ -8,3 +8,5 @@
 מבית ספר "אלמוגים" שנת 2024
 
 תכנת: אורי גרשוב
+
+![OriBot Full Logo](https://github.com/Orii-Bot/OriBot/blob/main/1000036609-removebg-preview%20(1).png)
