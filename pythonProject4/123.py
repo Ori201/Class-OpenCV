@@ -58,7 +58,118 @@ while True:
 
         if matches[matchIndex]:
             name = classNames[matchIndex]
-            #print(name)
+            name_for_print = ""
+            error_faceNO = "שגיאה: לא נמצא השם של התלמיד"
+
+            if name == "Ori Ger":
+                name_for_print = "אורי גרשוב"
+
+            elif name == "Matan":
+                name_for_print = "מתן דנצין"
+
+            elif name == "Gavriel":
+                name_for_print = "גבריאל חנוכייב"
+
+            elif name == "Liam":
+                name_for_print = "ליאם סוסלוב"
+
+            elif name == "Elian Gor":
+                name_for_print = "אליאן גורדין"
+
+            elif name == "Erica":
+                name_for_print = "אריקה רחמימוב"
+
+            elif name == "Tom":
+                name_for_print = "טום רוכמן"
+
+            elif name == "Elian Dan":
+                name_for_print = "אליאן דן"
+
+            elif name == "michelle":
+                name_for_print = "מישל לנצמן"
+
+            elif name == "Alin":
+                name_for_print = "אלין קורקוס"
+
+            elif name == "Michal":
+                name_for_print = "מיכל דגן"
+
+            elif name == "Ediel":
+                name_for_print = "אדיאל אברמוב"
+
+            elif name == "Alina":
+                name_for_print = "אלינה בוצ'קובה"
+
+            elif name == "Riki":
+                name_for_print = "ריקי ממן"
+
+            elif name == "Nazer":
+                name_for_print = "נזר ריסוחין"
+
+            elif name == "Alice":
+                name_for_print = "אליס יוסילביץ"
+
+            elif name == "Maor":
+                name_for_print = "מאור גולדנברג"
+
+            elif name == "Galya":
+                name_for_print = "גליה רכס"
+
+            elif name == "Danilo":
+                name_for_print = "דנילו אנדרייב"
+
+            elif name == "David":
+                name_for_print = "דוד גרינברג"
+
+            elif name == "Michael":
+                name_for_print = "מיכאל סמירנוב"
+
+            elif name == "Leol":
+                name_for_print = "לאול קבדה"
+
+            elif name == "Roman":
+                name_for_print = "רומן לוגשקין"
+
+            elif name == "Hodaya":
+                name_for_print = "הודיה מומו"
+
+            elif name == "Daniel":
+                name_for_print = "דניאל סולומון"
+
+            elif name == "Ayala":
+                name_for_print = "איילה נאוגוקר"
+
+            elif name == "Elad":
+                name_for_print = "אלעד רודובסקי"
+
+            elif name == "Yonatan":
+                name_for_print = "יונתן שוורצר"
+
+            elif name == "Yan":
+                name_for_print = "יאן קוסטנוביץ'"
+
+            elif name == "Yahav":
+                name_for_print = "יהב גילילוב"
+
+            elif name == "Ido":
+                name_for_print = "עידו מצקפלי"
+
+            #  +============================+
+            #  |  כאן נית ן להוסיף תלמידים! |
+            #  +============================+
+
+            else:
+                name_for_print = error_faceNO
+
+
+            print(name_for_print) # מה שיהיה כתוב ב LCD
+            print("כמות התווים:", len(name_for_print), name_for_print)
+            print(name) # באנגלית, מה שכתוב על המסך!
+
+
+
+            # כתיבת שם התלמיד על מסך LCD ברסברי פי 5.
+
             y1, x2, y2, x1 = faceLoc
             y1, x2, y2, x1 = y1 * 4, x2 * 4, y2 * 4, x1 * 4
             cv2.rectangle(img, (x1, y1), (x2, y2), (0, 255, 0), 2)
@@ -66,5 +177,5 @@ while True:
             cv2.putText(img, name, (x1 + 6, y2 - 6), cv2.FONT_HERSHEY_COMPLEX, 1, (255, 255, 255), 2)
             markAttendance(name)
 
-    cv2.imshow("זיהוי פנים", img)
+    cv2.imshow("Class CV", img)
     cv2.waitKey(1)
