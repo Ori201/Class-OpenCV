@@ -1,3 +1,4 @@
+import time
 import numpy as np
 import face_recognition
 import cv2
@@ -25,6 +26,7 @@ def findEncodings(images):
         encodeList.append(encode)
     return encodeList
 
+
 def markAttendance(name):
     with open("Attendance.csv", "r+") as f:
         myDataList = f.readlines()
@@ -39,6 +41,7 @@ def markAttendance(name):
 
 encodeListKnown = findEncodings(images)
 print("הפענוח הושלם")
+sound = 60
 
 cap = cv2.VideoCapture(0)
 
@@ -56,12 +59,14 @@ while True:
         #print(faceDis)
         matchIndex = np.argmin(faceDis)
 
+
+
         if matches[matchIndex]:
             name = classNames[matchIndex]
             name_for_print = ""
             error_faceNO = "שגיאה: לא נמצא השם של התלמיד"
 
-            if name == "Ori Ger":
+            if name == "Ori-Ger":
                 name_for_print = "אורי גרשוב"
 
             elif name == "Matan":
@@ -73,7 +78,7 @@ while True:
             elif name == "Liam":
                 name_for_print = "ליאם סוסלוב"
 
-            elif name == "Elian Gor":
+            elif name == "Elian-Gor":
                 name_for_print = "אליאן גורדין"
 
             elif name == "Erica":
@@ -82,7 +87,7 @@ while True:
             elif name == "Tom":
                 name_for_print = "טום רוכמן"
 
-            elif name == "Elian Dan":
+            elif name == "Elian-Dan":
                 name_for_print = "אליאן דן"
 
             elif name == "michelle":
@@ -168,7 +173,17 @@ while True:
 
 
 
+            #name1 = "start " + name + ".mp3"
+            #print(name1)
+            #os.system(name1)
+
+
+
+
             # כתיבת שם התלמיד על מסך LCD ברסברי פי 5.
+
+
+
 
             y1, x2, y2, x1 = faceLoc
             y1, x2, y2, x1 = y1 * 4, x2 * 4, y2 * 4, x1 * 4
@@ -176,6 +191,15 @@ while True:
             cv2.rectangle(img, (x1, y2 - 35), (x2, y2), (0, 255, 0), cv2.FILLED)
             cv2.putText(img, name, (x1 + 6, y2 - 6), cv2.FONT_HERSHEY_COMPLEX, 1, (255, 255, 255), 2)
             markAttendance(name)
+
+            sound = sound + sound
+
+        if sound > 70:
+            name1 = "start " + name + ".mp3"
+            print(name1)
+            print("מפעיל שמע:", name_for_print)
+            os.system(name1)
+            sound = 1
 
     cv2.imshow("Class CV", img)
     cv2.waitKey(1)
